@@ -1,153 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Free Fire World</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      height: 100vh;
-      font-family: 'Poppins', sans-serif;
-      background: url('https://envs.sh/1cb.jpg/IMG20251017782.jpg') no-repeat center center/cover;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: white;
-    }
-
-    .overlay {
-      background: rgba(0, 0, 0, 0.6);
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      text-align: center;
-    }
-
-    h1 {
-      font-size: 2.5em;
-      font-weight: 700;
-      color: #ffcc00;
-      text-shadow: 2px 2px 8px #000;
-    }
-
-    p {
-      font-size: 1.3em;
-      margin-top: 10px;
-      color: #e0e0e0;
-      text-shadow: 1px 1px 4px #000;
-    }
-
-    .uid-box {
-      margin-top: 30px;
-      background: rgba(255, 255, 255, 0.1);
-      padding: 15px 25px;
-      border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      backdrop-filter: blur(6px);
-    }
-
-    #uid {
-      font-size: 1.8em;
-      color: #ff8800;
-      font-weight: bold;
-      cursor: pointer;
-      user-select: none;
-    }
-
-    #copy-message {
-      color: #00ff99;
-      font-size: 0.9em;
-      margin-top: 5px;
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-
-    .btn {
-      background: linear-gradient(90deg, #ff5500, #ff8800);
-      border: none;
-      padding: 14px 28px;
-      border-radius: 10px;
-      color: white;
-      font-size: 1em;
-      cursor: pointer;
-      margin-top: 25px;
-      transition: 0.3s;
-      box-shadow: 0 0 10px rgba(255, 136, 0, 0.6);
-    }
-
-    .btn:hover {
-      transform: scale(1.05);
-      background: linear-gradient(90deg, #ff7700, #ffaa33);
-    }
-
-    .back-btn {
-      position: absolute;
-      top: 15px;
-      left: 15px;
-      background: rgba(255, 255, 255, 0.1);
-      border: none;
-      color: white;
-      padding: 10px 20px;
-      border-radius: 8px;
-      font-size: 1em;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    .back-btn:hover {
-      background: rgba(255, 255, 255, 0.2);
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Fire World - My Profile</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            /* Ensure the body takes full viewport height */
+            min-height: 100vh;
+        }
+    </style>
 </head>
-<body>
-  <div class="overlay">
-    <button class="back-btn" onclick="goBack()">⬅ Back</button>
+<body class="antialiased bg-gray-900">
 
-    <h1>Hello!</h1>
-    <p>Welcome to Free Fire World</p>
+    <div id="freefire-page" class="relative min-h-screen w-full flex flex-col items-center justify-center p-4" 
+        style="background-image: url('https://images.pexels.com/photos/9310623/pexels-photo-9310623.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'); 
+               background-size: cover; 
+               background-position: center;">
+         
+         <div class="absolute inset-0 bg-black/60"></div>
 
-    <div class="uid-box">
-      <p>My UID:</p>
-      <div id="uid" onclick="copyUID()">6763548917</div>
-      <div id="copy-message">UID Copied!</div>
+        <a href="https://nazmul6588764.github.io/About-of-stark/" onclick="alert('Going back to the main page!')" 
+           class="absolute top-6 left-6 z-20 text-white bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg transition-colors flex items-center gap-2">
+            <i class="fas fa-arrow-left"></i> 
+            Back
+        </a>
+        
+        <div class="w-full max-w-md mx-auto text-center text-white z-10 p-4">
+            
+            <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight text-shadow-lg">Hello!</h1>
+            <p class="text-gray-200 mt-2 text-xl md:text-2xl mb-12">Welcome to Free Fire World</p>
+            
+            <div class="mt-8 bg-black/50 backdrop-blur-md p-6 rounded-xl border border-gray-700 shadow-2xl">
+                <h2 class="text-lg font-semibold text-gray-300 uppercase tracking-widest">MY UID</h2>
+                <p id="uid-display" class="text-5xl md:text-6xl font-black mt-3 text-orange-500 cursor-pointer transition-transform hover:scale-[1.01]" 
+                   title="Click to copy UID" 
+                   onclick="copyUID()">
+                    1234567890
+                </p>
+                <p id="copy-message" class="text-green-400 h-4 mt-2 text-sm transition-opacity opacity-0">UID Copied!</p>
+            </div>
+
+            <a href="freefire://" class="mt-12 block w-full p-4 rounded-lg shadow-2xl 
+                bg-gradient-to-r from-orange-600 to-red-700 
+                hover:from-orange-700 hover:to-red-800 
+                transition-all transform hover:scale-[1.03]">
+                <h2 class="font-bold text-xl uppercase flex items-center justify-center gap-3">
+                    <i class="fas fa-gamepad"></i>
+                    START TO FREE FIRE
+                </h2>
+            </a>
+            
+        </div>
     </div>
 
-    <button class="btn" onclick="startFreeFire()">🎮 Start to Free Fire</button>
-  </div>
+    <script>
+        // --- CONFIGURATION ---
+        // *** Change your UID here ***
+        const myUID = "6763548917"; 
+        // --- END CONFIGURATION ---
 
-  <script>
-    function goBack() {
-      // এখানে তোমার ব্যাক লিংক বসাও
-      window.location.href = "https://nazmul6588764.github.io/About-of-stark/";
-    }
+        // Set UID on the page when the script loads
+        document.getElementById('uid-display').textContent = myUID;
 
-    function startFreeFire() {
-      // যদি ফোনে Free Fire ইন্সটল থাকে তাহলে ওপেন হবে
-      window.location.href = "intent://com.dts.freefireth/#Intent;scheme=android-app;end";
-    }
+        // Function to copy UID to clipboard
+        function copyUID() {
+            const uidText = document.getElementById('uid-display').textContent;
+            
+            // Use the modern Clipboard API (works best in modern browsers)
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(uidText).then(() => {
+                    showCopyMessage();
+                }).catch(err => {
+                    console.error('Failed to copy using clipboard API: ', err);
+                    // Fallback if the modern API fails
+                    fallbackCopyTextToClipboard(uidText);
+                });
+            } else {
+                // Fallback for older browsers
+                fallbackCopyTextToClipboard(uidText);
+            }
+        }
+        
+        // Classic method using a temporary textarea
+        function fallbackCopyTextToClipboard(text) {
+            const textArea = document.createElement("textarea");
+            textArea.value = text;
+            textArea.style.position = 'fixed'; // Prevents scrolling
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            try {
+                document.execCommand('copy');
+                showCopyMessage();
+            } catch (err) {
+                console.error('Fallback: Failed to copy text: ', err);
+            }
+            document.body.removeChild(textArea);
+        }
 
-    function copyUID() {
-      const uid = document.getElementById("uid").textContent;
-      navigator.clipboard.writeText(uid).then(() => {
-        const msg = document.getElementById("copy-message");
-        msg.style.opacity = 1;
-        setTimeout(() => {
-          msg.style.opacity = 0;
-        }, 2000);
-      });
-    }
-  </script>
+        // Function to show and hide the "UID Copied!" message
+        function showCopyMessage() {
+            const copyMessage = document.getElementById('copy-message');
+            copyMessage.style.opacity = '1';
+            setTimeout(() => {
+                copyMessage.style.opacity = '0';
+            }, 2000);
+        }
+    </script>
 </body>
 </html>
